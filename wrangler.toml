@@ -1,3 +1,8 @@
 [build]
 command = "yarn install --immutable && yarn build"
-publish = "out"
+
+[build.upload]
+format = "directory"
+
+[pages]
+build_output_dir = "out"

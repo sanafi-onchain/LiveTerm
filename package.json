@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && touch out/.nojekyll",
+    "build": "next build && mkdir -p out && touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"

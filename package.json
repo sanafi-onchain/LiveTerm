@@ -12,11 +12,10 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky install",
-    "export": "next build && next export"
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^0.27.2",

@@ -1,15 +1,15 @@
 {
   "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
-  "title": "LiveTerm",
-  "name": "John Doe",
-  "ascii": "liveterm",
+  "title": "Sanafi Onchain X IO.NET",
+  "name": "Sanafi Onchain",
+  "ascii": "sanafi",
   "social": {
-    "github": "github",
-    "linkedin": "linkedin"
+    "github": "sanafionchain",
+    "linkedin": "sanafionchain"
   },
-  "email": "contact@email.com",
-  "ps1_hostname": "liveterm",
-  "ps1_username": "visitor",
+  "email": "contact@sanafionchain.com",
+  "ps1_hostname": "sanafi",
+  "ps1_username": "revi",
   "repo": "https://github.com/Cveinnt/LiveTerm",
   "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
   "donate_urls": {
@@ -18,22 +18,22 @@
   },
   "colors": {
     "light": {
-      "background": "#FBF1C9",
-      "foreground": "#3C3836",
-      "yellow": "#D79921",
-      "green": "#98971A",
-      "gray": "#7C6F64",
-      "blue": "#458588",
-      "red": "#CA2124"
+      "background": "#1c4d3e",
+      "foreground": "#FFFFFF",
+      "yellow": "#FFD700",
+      "green": "#00FF00",
+      "gray": "#C0C0C0",
+      "blue": "#1E90FF",
+      "red": "#FF4500"
     },
     "dark": {
-      "background": "#2E3440",
-      "foreground": "#E5E9F0",
-      "yellow": "#5E81AC",
-      "green": "#A3BE8C",
-      "gray": "#88C0D0",
-      "blue": "#EBCB8B",
-      "red": "#BF616A"
+      "background": "#1c4d3e",
+      "foreground": "#FFFFFF",
+      "yellow": "#FFD700",
+      "green": "#00FF00",
+      "gray": "#C0C0C0",
+      "blue": "#1E90FF",
+      "red": "#FF4500"
     }
   }
 }

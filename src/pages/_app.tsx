@@ -18,13 +18,17 @@ const App = ({ Component, pageProps }) => {
           key="viewport"
           maximum-scale="1"
         />
+        <meta 
+          name="description" 
+          content="Sanafi Onchain X IO.NET - IO.NET supports Sanafi Onchain with Cloud and AI infrastructure"
+        />
       </Head>
 
       <div
         className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
         onClick={onClickAnywhere}
       >
-        <main className="bg-light-background dark:bg-dark-background w-full h-full p-2">
+        <main className="bg-[#1c4d3e] w-full h-full p-2">
           <Component {...pageProps} inputRef={inputRef} />
         </main>
       </div>

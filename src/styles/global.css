@@ -39,3 +39,14 @@ div#__next > div {
 ::-webkit-scrollbar-thumb:hover {
   background: #d0d0d0;
 }
+
+/* Blinking animation for HOT news badge */
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
+.blink {
+  animation: blink 1.5s infinite;
+}

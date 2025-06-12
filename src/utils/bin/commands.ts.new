@@ -7,11 +7,11 @@ import config from '../../../config.json';
 export const help = async (args: string[]): Promise<string> => {
   return `Welcome to Sanafi Onchain Terminal! Available commands:
 
-- help: Show this help message
-- news: Get the latest Sanafi Onchain updates and announcements
+news        - <span class="text-red-500 font-bold">HOT</span> Get the latest Sanafi Onchain updates and announcements
+              Try 'news io', 'news sep', and 'news sef' for detailed information!
 
 [tab]: trigger completion.
-[clear]: clear terminal.
+[ctrl+l]/clear: clear terminal.
 `;
 };
 
@@ -153,8 +153,7 @@ const newsData = [
   {
     id: 'io',
     title: 'IO.NET PARTNERS WITH SANAFI ONCHAIN',
-    description:
-      'IO.NET now provides enterprise-grade Cloud and AI infrastructure support for all Sanafi blockchain solutions, enabling unprecedented scalability.',
+    description: 'IO.NET now provides enterprise-grade Cloud and AI infrastructure support for all Sanafi blockchain solutions, enabling unprecedented scalability.',
     date: 'June 12, 2025',
     isHot: true,
     category: 'PARTNERSHIP DETAILS',
@@ -183,13 +182,12 @@ in the development of secure, scalable, and ethical blockchain solutions.
 <span class="text-blue-400">→ This partnership represents the future of ethical finance on the blockchain.</span>
 
 <span class="text-white font-bold">For investors:</span> Early adopters will gain preferential access to upcoming features.
-<span class="text-white font-bold">For developers:</span> New API documentation will be released next week.`,
+<span class="text-white font-bold">For developers:</span> New API documentation will be released next week.`
   },
   {
     id: 'sep',
     title: 'Sanafi launches SEP',
-    description:
-      'Introducing Sanafi Ethical Products: Revolutionizing Ethical Finance on the Blockchain.',
+    description: 'Introducing Sanafi Ethical Products: Revolutionizing Ethical Finance on the Blockchain.',
     date: 'June 11, 2025',
     isHot: false,
     category: 'PRODUCT LAUNCH',
@@ -215,7 +213,7 @@ principles and sustainable development goals.
 
 - <span class="text-blue-400">Ethical DeFi Lending</span>: Fair-interest loans with transparent terms
 - <span class="text-blue-400">Green Investment Pools</span>: Funding for sustainable energy projects
-- <span class="text-blue-400">Social Impact Bonds</span>: Supporting education and healthcare initiatives`,
+- <span class="text-blue-400">Social Impact Bonds</span>: Supporting education and healthcare initiatives`
   },
   {
     id: 'sef',
@@ -250,7 +248,7 @@ and drives continuous growth.
 As more users participate ethically → More value generated → Higher rewards distributed →
 Attracts more users → Greater network effects → Ecosystem expansion
 
-<span class="text-blue-400">Token launch details coming soon. Join our waitlist for early access privileges.</span>`,
+<span class="text-blue-400">Token launch details coming soon. Join our waitlist for early access privileges.</span>`
   },
   {
     id: 'creation',
@@ -262,8 +260,8 @@ Attracts more users → Greater network effects → Ecosystem expansion
     categoryColor: 'gray-600',
     secondaryTitle: 'PROJECT LAUNCH',
     secondaryTitleColor: 'blue-300',
-    detailsPrompt: '',
-  },
+    detailsPrompt: ""
+  }
 ];
 
 // News
@@ -271,20 +269,16 @@ export const news = async (args: string[]): Promise<string> => {
   // Sub-pages for detailed news topics
   if (args.length > 0) {
     const topic = args[0].toLowerCase();
-    const newsItem = newsData.find((item) => item.id === topic);
-
+    const newsItem = newsData.find(item => item.id === topic);
+    
     if (newsItem) {
       if (!newsItem.fullContent) {
         return `No detailed information available for this topic.
 Type 'news' to return to the main news page`;
       }
-
+      
       return `
-<span class="text-white bg-${newsItem.categoryColor} px-1 font-bold">${
-        newsItem.category
-      }</span> <span class="text-${newsItem.secondaryTitleColor} font-bold">${
-        newsItem.secondaryTitle
-      }</span>
+<span class="text-white bg-${newsItem.categoryColor} px-1 font-bold">${newsItem.category}</span> <span class="text-${newsItem.secondaryTitleColor} font-bold">${newsItem.secondaryTitle}</span>
 ${'='.repeat(newsItem.secondaryTitle.length + newsItem.category.length + 10)}
 
 <span class="text-yellow-300 font-bold">[${newsItem.date}]</span>
@@ -294,11 +288,8 @@ ${newsItem.fullContent}
 <span class="text-blue-400 underline">Type 'news' to return to the main news page</span>
 `;
     }
-
-    return `Unknown news topic. Available topics: ${newsData
-      .filter((item) => item.detailsPrompt)
-      .map((item) => item.id)
-      .join(', ')}.
+    
+    return `Unknown news topic. Available topics: ${newsData.filter(item => item.detailsPrompt).map(item => item.id).join(', ')}.
 Type 'news' without arguments to see all recent updates.`;
   }
 
@@ -311,46 +302,29 @@ Type 'news' without arguments to see all recent updates.`;
 
   // Add each news item to the output
   for (const item of newsData) {
-    output += `📢 `;
-
     if (item.isHot) {
       output += `<span class="text-red-500 font-bold blink">★ HOT ★</span> `;
     }
-
-    output += `<span class="text-yellow-300 font-bold">[${item.date}] ${item.title}</span>
-   ${item.description}
+    
+    output += `<span class="text-yellow-300 font-bold">[${item.date}]</span>
+<span class="text-white font-bold">${item.title}</span>
+${item.description}
 `;
 
     if (item.detailsPrompt) {
-      // output += `<span class="text-blue-400">→ ${item.detailsPrompt}</span>
-      output += `
+      output += `<span class="text-blue-400">→ ${item.detailsPrompt}</span>
+
 `;
     } else {
       output += `
+
 `;
     }
   }
 
   output += `
 <span class="text-white">For more information, join our community:</span>
-- <a 
-    class="text-blue-400 underline hover:scale-105 focus:scale-105 hover:font-bold focus:font-bold hover:text-blue-300 focus:text-blue-300 transition-all transform duration-200 cursor-pointer inline-block" 
-    href="https://x.com/sanafionchain" 
-    target="_blank"
-    tabindex="0"
-  >X: @sanafionchain</a>
-- <a 
-    class="text-blue-400 underline hover:scale-105 focus:scale-105 hover:font-bold focus:font-bold hover:text-blue-300 focus:text-blue-300 transition-all transform duration-200 cursor-pointer inline-block" 
-    href="https://x.com/i/communities/1932413895840579952" 
-    target="_blank"
-    tabindex="0"
-  >X Community</a>
-- <a 
-    class="text-blue-400 underline hover:scale-105 focus:scale-105 hover:font-bold focus:font-bold hover:text-blue-300 focus:text-blue-300 transition-all transform duration-200 cursor-pointer inline-block" 
-    href="https://t.me/sanafionchain" 
-    target="_blank"
-    tabindex="0"
-  >Telegram: t.me/sanafionchain</a>
+<span class="text-blue-400 underline">X: @sanafionchain</span> | <span class="text-blue-400 underline">Discord: discord.gg/sanafi</span>
 `;
 
   return output;
